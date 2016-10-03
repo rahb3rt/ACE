@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!-- Robert O. Davis, Nov. 1, 2014 ACE Test -->
+<html>
+    
+   
+    <body>
+        
+        <h1><b>Finding Your ACE Score</b></h1>
+        
+        <form>
+            
+            <p>Are you a male or female?</p>
+            
+                <input type="radio" name="gender" id="male" value="1">Male<br>
+                <input type="radio" name="gender" id="female" value="2">Female<br>
+           
+            <p> 1. Did your parents or other adults in the household <b>oftern or very often </b> swear at you, insult you, put you down, or humiliate you? <br>
+                <b>OR</b><br>
+                Act in a way that made you afraid that you might be physically hurt?</p>
+                
+            <input type="radio" name="q1" value="1">Yes<br>
+            <input type="radio" name="q1" value="0">No<br>
+                    <br>
+                    
+                    <p> 2. Did a parent or other adult in the household <b> often or very often </b> push, grab, slap, or throw something at you? <br>
+                        <b>OR</b><br>
+                        <b><i>Ever</i></b> hit you so hard that you had marks or were injured?</p>
+                    
+                    <input type="radio" name="q2" value="1">Yes<br>
+                    <input type="radio" name="q2" value="0">No<br>
+                            <br>
+                            
+                            <p> 3. Did an adult or person at least 5 years older than you <b>ever</b>: <br>
+                                -Touch or fondle you or have you touch their body in a sexual way?<br>
+                                <b>OR</b><br>
+                                -Attemmpt or actually have oral, anal, or vaginal intercourse with you?</p>
+                            
+                            <input type="radio" name="q3" value="1">Yes<br>
+                            <input type="radio" name="q3" value="0">No<br>
+                                    <br>
+                                    
+                                    <p> 4. Did you <b>often or very often</b> feel that: <br>
+                                    -No one in your family loved you or thought you were important or special?<br>
+                                    <b>OR</b><br>
+                                    -Your family did not look out for each other, feel close to each other, or support each other?</p>
+                                    
+                                    <input type="radio" name="q4" value="1">Yes<br>
+                                    <input type="radio" name="q4" value="0">No<br>
+                                            <br>
+                                            
+                                            <p> 5. Did you <b>often or very often</b> feel that:<br>
+                                                -You did not have enough to eat, had to wear dirty clothes, and had no one to protect you?</br>
+                                                <b>OR</b><br>
+                                                -Your parents were too drunk or high to take care of you or take you to the doctor if you needed it?</p>
+                                            
+                                            <input type="radio" name="q5" value="1">Yes<br>
+                                            <input type="radio" name="q5" value="0">No<br>
+                                                    <br>
+                                                    
+                                                    <p>6. Were your parents <b><i>ever</i></b> seperated or divorced?</p>
+                                                    
+                                                    <input type="radio" name="q6" value="1">Yes<br>
+                                                    <input type="radio" name="q6" value="0">No<br>
+                                                            <br>
+                                                            
+                                                            <p>7. Was your mother or stepmother:<br>
+                                                                -<b>Often or very often</b> pushed, grabbed, slapped, or had something thrown at her?<br>
+                                                                <b>OR</b><br>
+                                                                -<b>Sometimes, often or very often</b> kicked, bitten, hit with a fist, or hit with something hard?<br>
+                                                                <b>OR</b><br>
+                                                                -<b>Ever</b> repeatedly hit at least a few minutes or threatened with a gun or knife?</p>
+                                                            
+                                                            <input type="radio" name="q7" value="1">Yes<br>
+                                                            <input type="radio" name="q7" value="0">No<br>
+                                                                    <br>
+                                                                    
+                                                                    <p>8. Did you live with anyone who was a problem drinker or alcoholic or who used street drugs?</p>
+                                                                    
+                                                                    <input type="radio" name="q8" value="1">Yes<br>
+                                                                    <input type="radio" name="q8" value="0">No<br>
+                                                                            <br>
+                                                                            
+                                                                            <p>9. Was a household member depressed or mentally ill, or did a household member attempt suicide?</p>
+                                                                            
+                                                                            <input type="radio" name="q9" value="1">Yes<br>
+                                                                            <input type="radio" name="q9" value="0">No<br>
+                                                                                    <br>
+                                                                                    
+                                                                                    <p>10. Did a houehold member go to prison?</p>
+                                                                                    
+                                                                                    <input type="radio" name="q10" value="1">Yes<br>
+                                                                                    <input type="radio" name="q10" value="0">No<br>
+                                                                                            <br>
+                            
+            <input type="button" onclick="myFunction()" value="Submit">
+                                <br><br>
+                                
+                                <!--<input type="text" id="order" size="50"><br> --> <!--only used for debugging-->
+                                <input type="text" id="gender" size="50"><br>
+                                <input type="text" id="depression" size="50">
+                                
+                                 
+        </form>
+        
+        <script>
+            
+            //Anything in the comment tag if there is no comment and it is a piece of code, was used to debugg the script
+
+            
+            function myFunction() {
+                
+                
+                //creates the radios into readable variables by the script
+                var questions =[
+                 document.forms[0].q1,
+                 document.forms[0].q2,
+                 document.forms[0].q3,
+                 document.forms[0].q4,
+                 document.forms[0].q5,
+                 document.forms[0].q6,
+                 document.forms[0].q7,
+                 document.forms[0].q8,
+                 document.forms[0].q9,
+                 document.forms[0].q10
+                                ];
+                                
+                 
+                 //document.getElementById("order").value = ((questions[1].value*1)+2);
+
+                //inizialize i for the loop
+                var i,j;
+                var k = 0;
+                var sum = 0;
+                
+                //variables- chance is used for percent that the patient can get depressed
+                // gender is used for comparison
+                
+                var chance;
+                var gender = document.forms[0].gender;
+                
+              
+                gender = gender.value * 1;
+                
+                //document.getElementById("order").value = gender;
+                
+                //What gender is the patient
+                
+                if (gender == 1)
+                document.getElementById("gender").value = "Male";
+                
+                else if (gender == 2)
+                document.getElementById("gender").value = "Female";
+                
+                else
+                document.getElementById("gender").value = "Please Select A Gender";
+                
+            
+
+                
+                //loop will go through array and reassign values to the array based on the answers
+                
+                
+                for (i = 0; i < questions[i].length; i++) {
+                    
+                    for ( j = 0; j < 2; j++)
+                    
+                        if (questions[j].checked) {
+                            
+                           questions[i] = questions[i].value*1;}
+                }
+                
+                //document.getElementById("order").value = questions[0]+2;
+                //document.getElementById("order").value = sum;
+                
+                //loop sums up array
+                for( i = 0; i < questions.length; i++){
+                
+                //document.getElementById("order").value = ((questions[9].value)*1+2);
+                
+                    sum = (questions[i].value*1) + sum;}
+                
+                //document.getElementById("order").value = sum; //debugging
+        
+        //document.getElementById("order").value = "Your chance of developing depression are: " + chance + "%.";
+        
+        if (sum > 0){
+        
+            if (sum >= 5 )
+        
+            chance  = 61;
+            
+            //document.getElementById("order").value = "Your chance of developing depression are:" + chance + "%.";}
+
+            else{
+            chance = 0;
+            //document.getElementById("order").value = "Your chance of developing depression are:" + chance + "%.";
+            }
+        
+        
+        if (questions[0]*1 == 1|| questions[1].value*1 == 1 || questions[2].value*1 == 1 || questions[8].value*1 == 1){
+            
+            chance = 100 ;
+        
+                if (questions[0].value*1 == 1){
+                        
+                        if (gender == 1)
+                            
+                            chance  = 2.5* chance + chance;
+                        
+                            else
+                            
+                            chance = 2.7 * chance + chance;}
+                
+                if (questions[1].value*1 == 1){
+                    
+                    if (gender == 1)
+                        
+                            chance = 1.6 *chance + chance;
+                
+                    else
+                            
+                            chance  = 2.1* chance + chance;}
+                
+                if (questions[2].value*1 == 1){
+                    
+                    if (gender == 1)
+                    
+                        chance = 1.6* chance + chance;
+                    
+                    else
+                    
+                        chance = 1.8* chance + chance;}
+                
+                if (questions[8].value*1 == 1){
+                
+                    if (gender == 1)
+                        
+                        chance = 46 + 100 + chance;
+                    
+                    else
+                        
+                        chance = 61 + 100 + chance;}
+                }
+        
+            document.getElementById("depression").value = "Your chance of developing depression are: " + chance + "%. ";
+        }
+
+        else
+            document.getElementById("depression").value = "Check all boxes. ";
+            
+
+            }
+        
+        
+        
+        
+        
+        </script>
+        
+    </body>
+</html>
